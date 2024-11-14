@@ -12,7 +12,7 @@ export class TodoistService {
   private apiUrl = 'https://api.todoist.com/rest/v2';
   private apiToken = environment.todoistApiToken;
 
-  httpClient: HttpClient = inject(HttpClient)
+  httpClient: HttpClient = inject(HttpClient);
 
   private getHeaders(): HttpHeaders {
     return new HttpHeaders({
@@ -25,8 +25,14 @@ export class TodoistService {
     return this.httpClient.get(`${this.apiUrl}/tasks`, { headers: this.getHeaders() });
   }
 
-  addTask(content: string): Observable<any> {
-    const body = { content };
+  addTask(name: string, description: string): Observable<any> {
+    const body = {
+      content: name,
+      description: description // dodajemy opis
+    };
     return this.httpClient.post(`${this.apiUrl}/tasks`, body, { headers: this.getHeaders() });
+  }
+  deleteTask(taskId: string): Observable<any> {
+    return this.httpClient.delete(`${this.apiUrl}/tasks/${taskId}`, { headers: this.getHeaders() });
   }
 }
