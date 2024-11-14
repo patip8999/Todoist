@@ -1,0 +1,45 @@
+.task-list-container {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+.title {
+  color: #343a40;
+  font-size: 2rem;
+}
+
+.list-group-item {
+  background-color: #ffffff;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+
+.list-group-item:hover {
+  background-color: #f1f1f1;
+}
+
+.form-control {
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+}
+
+.btn {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border: none;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
