@@ -1,4 +1,4 @@
-export interface Task {
+export interface TaskModel{
     id: string;
     order: number;
     content: string;
@@ -11,6 +11,6 @@ export interface Task {
     createdAt: string;
     url: string;
     creatorId: string;
-    // Dodajemy isDescriptionVisible
+
     isDescriptionVisible?: boolean;
   }

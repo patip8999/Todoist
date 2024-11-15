@@ -14,6 +14,10 @@
           <button class="btn btn-info btn-sm" (click)="toggleDescription(task)">
             Opis
           </button>
+          <button class="btn btn-secondary btn-sm"  data-bs-toggle="modal"
+          data-bs-target="#exampleModal"  (click)="openEditModal(task)" >
+            Edytuj na żywo
+          </button>
         </div>
         
         @if (task.isDescriptionVisible()) {
@@ -31,3 +35,36 @@
     </button>
   </div>
 </div>
+
+<app-modal>
+  <div modal-header>
+    <h5 class="modal-title">Edytuj Zadanie</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  </div>
+  <div modal-body>
+    @if (selectedTask()) {
+      <div>
+        <label for="taskContent">Treść zadania:</label>
+        <input
+          id="taskContent"
+          class="form-control"
+          [(ngModel)]="editedContent"
+        />
+      </div>
+      <div class="mt-3">
+        <label for="taskDescription">Opis:</label>
+        <textarea
+          id="taskDescription"
+          class="form-control"
+          [(ngModel)]="editedDescription"
+        ></textarea>
+      </div>
+    }
+  </div>
+  <div modal-footer>
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zamknij</button>
+    <button type="button" class="btn btn-primary" (click)="saveChanges()" data-bs-dismiss="modal">
+      Zapisz zmiany
+    </button>
+  </div>
+</app-modal>
