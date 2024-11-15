@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 export interface TaskForm {
   readonly name: string;
   readonly description: string;
+  readonly dueDate: string;
+  readonly priority: number | null;
+
 }
 @Component({
   selector: 'app-create-task',
@@ -20,12 +23,20 @@ export class CreateTaskComponent {
   model: TaskForm = {
     name: '',
     description: '',
+    dueDate: '',
+    priority:  null,
   };
-  addTask(name: string, description: string): void {
-    this.todoistService.addTask(name, description).subscribe((task) => {
+  addTask(name: string, description: string, dueDate: string, priority: string): void {
+    const taskData = {
+      content: name,
+      description: description,
+      due_date: dueDate,
+      priority: parseInt(priority, 10),
+    };
+  
+    this.todoistService.addTask(taskData).subscribe((task) => {
       this.tasks.push(task);
-
-      this.router.navigate(['/']);
+      this.router.navigate(['/']); // Przekierowanie na stronę główną
     });
   }
 }

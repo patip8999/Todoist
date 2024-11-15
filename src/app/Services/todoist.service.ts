@@ -27,12 +27,8 @@ export class TodoistService {
     return this.httpClient.get(`${this.apiUrl}/tasks`, { headers: this.getHeaders() });
   }
 
-  addTask(name: string, description: string): Observable<any> {
-    const body = {
-      content: name,
-      description: description 
-    };
-    return this.httpClient.post(`${this.apiUrl}/tasks`, body, { headers: this.getHeaders() });
+  addTask(taskData: { content: string; description: string; due_date: string; priority: number }): Observable<any> {
+    return this.httpClient.post(`${this.apiUrl}/tasks`, taskData, { headers: this.getHeaders() });
   }
   deleteTask(taskId: string): Observable<any> {
     return this.httpClient.delete(`${this.apiUrl}/tasks/${taskId}`, { headers: this.getHeaders() });
