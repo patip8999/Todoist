@@ -33,31 +33,32 @@ import { FormsModule } from '@angular/forms';
 export class TaskListComponent implements OnInit {
   editedContent: string = '';
 editedDescription: string = '';
+
   tasks: any[] = [];
   todoistService: TodoistService = inject(TodoistService);
 
   ngOnInit(): void {
     this.loadTasks();
   }
-public selectedTask = signal<TaskModel | undefined>(undefined)
+  selectedTask: TaskModel | undefined;
 openEditModal(task: TaskModel): void {
-  this.selectedTask.set(task); // Przypisanie wybranego zadania do sygnału
-  const currentTask = this.selectedTask();
-  if (currentTask) {
-    this.editedContent = currentTask.content; // Wypełnienie polami do edycji
-    this.editedDescription = currentTask.description;
-  }
+  this.selectedTask = task;
+  this.editedContent = task.content;
+  this.editedDescription = task.description || '';
 }
 saveChanges(): void {
-  const currentTask = this.selectedTask();
-  if (currentTask) {
-    currentTask.content = this.editedContent;
-    currentTask.description = this.editedDescription;
-
-    this.todoistService.updateTask(currentTask).subscribe(() => {
-      this.loadTasks(); // Odśwież listę zadań
-      console.log('Zadanie zostało pomyślnie zaktualizowane.');
-    });
+  if (this.selectedTask) {
+    // Wywołanie serwisu do aktualizacji zadania w Todoist API
+    this.todoistService
+      .updateTask(this.selectedTask.id, this.editedContent, this.editedDescription)
+      .then((response) => {
+        console.log('Zaktualizowane zadanie:', response);
+        // Odświeżenie listy zadań
+        this.loadTasks();
+      })
+      .catch((error) => {
+        console.error('Błąd podczas aktualizacji zadania:', error);
+      });
   }
 }
   loadTasks(): void {
