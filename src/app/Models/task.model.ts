@@ -11,6 +11,7 @@ export interface TaskModel{
     createdAt: string;
     url: string;
     creatorId: string;
+    due: { date: string; string: string; lang: string; is_recurring: boolean } | null;  // Typ dla due
     dueDate: string;
     isDescriptionVisible?: boolean;
   }

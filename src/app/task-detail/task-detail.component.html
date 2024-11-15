@@ -1,0 +1,23 @@
+
+  <div  class="task-detail-container">
+    <h2 class="task-detail-title">Task Details</h2>
+    <div class="task-detail">
+      @if (task ; as task) {
+      <p><strong>Content:</strong> {{ task.content }}</p>
+      <p><strong>Description:</strong> {{ task.description || 'No description provided' }}</p>
+      <p><strong>Due Date:</strong> {{ task.due ? formatDate(task.due.date) : 'No due date' }}</p>
+      <p><strong>Priority:</strong> 
+        
+        <span [ngClass]="{
+          'high-priority': task.priority === 4,
+          'medium-priority': task.priority === 3,
+          'low-priority': task.priority === 2,
+          'very-low-priority': task.priority === 1
+        }">
+          {{ task.priority }}
+        </span>
+      </p>
+    }
+</div>
+
+</div>

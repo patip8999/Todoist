@@ -15,6 +15,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import { ModalComponent } from '../modal/modal.component';
 import { TaskModel } from '../Models/task.model';
 import { FormsModule } from '@angular/forms';
+import { TaskDetailComponent } from '../task-detail/task-detail.component';
 
 @Component({
   selector: 'app-task-list',
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     CreateTaskComponent,
     RouterModule,
     ModalComponent,
-    FormsModule
+    FormsModule,
+    TaskDetailComponent
   ],
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.css'],
@@ -37,6 +39,7 @@ editedDueDate: string = ''; // Nowe pole na datę
   editedPriority: number = 1;
   tasks: any[] = [];
   todoistService: TodoistService = inject(TodoistService);
+  router: any;
 
   ngOnInit(): void {
     this.loadTasks();
@@ -89,5 +92,8 @@ editedDueDate: string = ''; // Nowe pole na datę
       this.tasks = this.tasks.filter((task) => task.id !== taskId);
       console.log('Zadanie zostało pomyślnie usunięte.');
     });
+  }
+  viewTaskDetails(taskId: string): void {
+    this.router.navigate([`/detail/${taskId}`]);  // Przekierowanie na stronę szczegółów
   }
 }

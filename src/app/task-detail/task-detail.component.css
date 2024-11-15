@@ -1,0 +1,55 @@
+.task-detail-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+  .task-detail-title {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .task-detail p {
+    font-size: 1.1em;
+    margin: 10px 0;
+    color: #555;
+  }
+  
+  .task-detail p strong {
+    color: #333;
+  }
+  
+  .task-detail .loading-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: #888;
+    padding: 20px;
+    font-weight: 500;
+  }
+  
+  .high-priority {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .medium-priority {
+    color: orange;
+    font-weight: bold;
+  }
+  
+  .low-priority {
+    color: yellowgreen;
+    font-weight: bold;
+  }
+  
+  .very-low-priority {
+    color: lightgray;
+    font-weight: bold;
+  }
+  
