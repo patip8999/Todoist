@@ -11,6 +11,6 @@ export interface TaskModel{
     createdAt: string;
     url: string;
     creatorId: string;
-
+    dueDate: string;
     isDescriptionVisible?: boolean;
   }

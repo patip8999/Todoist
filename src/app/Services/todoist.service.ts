@@ -34,10 +34,12 @@ export class TodoistService {
   deleteTask(taskId: string): Observable<any> {
     return this.httpClient.delete(`${this.apiUrl}/tasks/${taskId}`, { headers: this.getHeaders() });
   }
-  updateTask(taskId: string, content: string, description: string) {
+  updateTask(taskId: string, content: string, description: string, dueDate: string, priority: number) {
     return this.api.updateTask(taskId, {
       content: content,
       description: description,
+      dueDate: dueDate, // Poprawne pole do ustawiania daty
+      priority: priority,
     });
   }
 }

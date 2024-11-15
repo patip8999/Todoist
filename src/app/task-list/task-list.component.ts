@@ -33,7 +33,8 @@ import { FormsModule } from '@angular/forms';
 export class TaskListComponent implements OnInit {
   editedContent: string = '';
 editedDescription: string = '';
-
+editedDueDate: string = ''; // Nowe pole na datę
+  editedPriority: number = 1;
   tasks: any[] = [];
   todoistService: TodoistService = inject(TodoistService);
 
@@ -41,26 +42,35 @@ editedDescription: string = '';
     this.loadTasks();
   }
   selectedTask: TaskModel | undefined;
-openEditModal(task: TaskModel): void {
-  this.selectedTask = task;
-  this.editedContent = task.content;
-  this.editedDescription = task.description || '';
-}
-saveChanges(): void {
-  if (this.selectedTask) {
-    // Wywołanie serwisu do aktualizacji zadania w Todoist API
-    this.todoistService
-      .updateTask(this.selectedTask.id, this.editedContent, this.editedDescription)
-      .then((response) => {
-        console.log('Zaktualizowane zadanie:', response);
-        // Odświeżenie listy zadań
-        this.loadTasks();
-      })
-      .catch((error) => {
-        console.error('Błąd podczas aktualizacji zadania:', error);
-      });
+  openEditModal(task: TaskModel): void {
+    this.selectedTask = task;
+    this.editedContent = task.content;
+    this.editedDescription = task.description || '';
+    this.editedDueDate = task.dueDate ? task.dueDate : ''; // Jeśli zadanie ma datę, wczytujemy ją
+    this.editedPriority = task.priority || 1; // Jeśli zadanie ma priorytet, wczytujemy go
   }
-}
+
+  saveChanges(): void {
+    if (this.selectedTask) {
+      // Wywołanie serwisu do aktualizacji zadania
+      this.todoistService
+        .updateTask(
+          this.selectedTask.id,
+          this.editedContent,
+          this.editedDescription,
+          this.editedDueDate,
+          this.editedPriority
+        )
+        .then((response) => {
+          console.log('Zaktualizowane zadanie:', response);
+          // Odświeżenie listy zadań po aktualizacji
+          this.loadTasks();
+        })
+        .catch((error) => {
+          console.error('Błąd podczas aktualizacji zadania:', error);
+        });
+    }
+  }
   loadTasks(): void {
     this.todoistService.getTasks().subscribe((tasks) => {
       this.tasks = tasks.map((task: any) => ({

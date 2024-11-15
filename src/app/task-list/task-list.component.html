@@ -58,6 +58,17 @@
           class="form-control"
           [(ngModel)]="editedDescription"
         ></textarea>
+        <label for="dueDate">Due Date:</label>
+        <input type="date" id="dueDate" [(ngModel)]="editedDueDate" />
+      
+        <!-- Nowe pole do edycji priorytetu -->
+        <label for="priority">Priority:</label>
+        <select id="priority" [(ngModel)]="editedPriority">
+          <option value="1">Priority 4</option>
+          <option value="2">Priority 3</option>
+          <option value="3">Priority 2</option>
+          <option value="4">Priority 1</option>
+        </select>
       </div>
     }
   </div>
