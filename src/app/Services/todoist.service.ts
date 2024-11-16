@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { environment } from '../../environments/enviroments.prod';
 import { TaskModel } from '../Models/task.model';
-import { TodoistApi } from '@doist/todoist-api-typescript';
+import { Task, TodoistApi } from '@doist/todoist-api-typescript';
 
 
 
@@ -26,15 +26,10 @@ export class TodoistService {
   getTask(taskId: string): Observable<TaskModel> {
     return this.httpClient.get<TaskModel>(`${this.apiUrl}/tasks/${taskId}`, { headers: this.getHeaders() });
   }
-  getTasks(): Observable<any> {
-    return this.httpClient.get(`${this.apiUrl}/tasks`, { headers: this.getHeaders() });
+  getTasks(): Observable<TaskModel[]> {
+    return this.httpClient.get<TaskModel[]>(`${this.apiUrl}/tasks`, { headers: this.getHeaders() });
   }
-  getCurrentTask(): Observable<TaskModel | null> {
-    return this.taskSubject.asObservable();
-  }
-  setCurrentTask(task: TaskModel): void {
-    this.taskSubject.next(task);
-  }
+ 
   addTask(taskData: { content: string; description: string; due_date: string; priority: number }): Observable<any> {
     return this.httpClient.post(`${this.apiUrl}/tasks`, taskData, { headers: this.getHeaders() });
   }

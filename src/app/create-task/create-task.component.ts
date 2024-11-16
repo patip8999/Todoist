@@ -36,7 +36,7 @@ export class CreateTaskComponent {
   
     this.todoistService.addTask(taskData).subscribe((task) => {
       this.tasks.push(task);
-      this.router.navigate(['/']); // Przekierowanie na stronę główną
+      this.router.navigate(['/']); 
     });
   }
 }

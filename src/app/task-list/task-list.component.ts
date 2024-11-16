@@ -16,6 +16,7 @@ import { ModalComponent } from '../modal/modal.component';
 import { TaskModel } from '../Models/task.model';
 import { FormsModule } from '@angular/forms';
 import { TaskDetailComponent } from '../task-detail/task-detail.component';
+import { DragAndDropDirective } from '../drag-and-drop.directive';
 
 @Component({
   selector: 'app-task-list',
@@ -27,7 +28,8 @@ import { TaskDetailComponent } from '../task-detail/task-detail.component';
     RouterModule,
     ModalComponent,
     FormsModule,
-    TaskDetailComponent
+    TaskDetailComponent,
+    DragAndDropDirective
   ],
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.css'],
@@ -37,7 +39,7 @@ export class TaskListComponent implements OnInit {
 editedDescription: string = '';
 editedDueDate: string = ''; // Nowe pole na datę
   editedPriority: number = 1;
-  tasks: any[] = [];
+  tasks = signal<TaskModel[]>([]);;
   todoistService: TodoistService = inject(TodoistService);
   router: any;
 
@@ -76,24 +78,44 @@ editedDueDate: string = ''; // Nowe pole na datę
   }
   loadTasks(): void {
     this.todoistService.getTasks().subscribe((tasks) => {
-      this.tasks = tasks.map((task: any) => ({
-        ...task,
-        isDescriptionVisible: signal<boolean>(false),
-      }));
+      this.tasks.set(tasks); // Ustawiamy zadania w sygnale
     });
   }
-
   toggleDescription(task: any): void {
-    task.isDescriptionVisible.update((current: boolean) => !current);
+    if (task.isDescriptionVisible) {
+      task.isDescriptionVisible.update((current: boolean) => !current);
+    }
   }
-
   deleteTask(taskId: string): void {
     this.todoistService.deleteTask(taskId).subscribe(() => {
-      this.tasks = this.tasks.filter((task) => task.id !== taskId);
+      this.tasks.update((tasks) => tasks.filter((task) => task.id !== taskId));
       console.log('Zadanie zostało pomyślnie usunięte.');
     });
   }
   viewTaskDetails(taskId: string): void {
-    this.router.navigate([`/detail/${taskId}`]);  // Przekierowanie na stronę szczegółów
+    this.router.navigate([`/detail/${taskId}`]);  
+  }
+  onTaskReordered(event: { from: string; to: string }): void {
+    const { from, to } = event;
+  
+    console.log('Zadanie przeniesione z', from, 'na', to);
+  
+    // Przykład logiki, by zamienić miejscami zadania w tablicy
+    const tasks = this.tasks();
+    const draggedTask = tasks.find((task) => task.id === from);
+    const targetTask = tasks.find((task) => task.id === to);
+  
+    if (draggedTask && targetTask) {
+      const draggedIndex = tasks.indexOf(draggedTask);
+      const targetIndex = tasks.indexOf(targetTask);
+  
+      // Zamiana miejscami
+      tasks[draggedIndex] = targetTask;
+      tasks[targetIndex] = draggedTask;
+  
+      // Zaktualizowanie sygnalnych zadań
+      this.tasks.set([...tasks]);
+    }
   }
 }
+

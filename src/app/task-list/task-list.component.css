@@ -1,45 +1,38 @@
-.task-list-container {
-  background-color: #f8f9fa;
+.list-group-item {
+  background: linear-gradient(135deg, #e0f7fa, #80deea);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-}
-
-.title {
-  color: #343a40;
-  font-size: 2rem;
-}
-
-.list-group-item {
-  background-color: #ffffff;
-  border-radius: 5px;
-  font-size: 1.1rem;
+  margin-bottom: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .list-group-item:hover {
-  background-color: #f1f1f1;
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.form-control {
-  border-radius: 5px;
-  border: 1px solid #ced4da;
+.task-description {
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #555;
 }
 
-.btn {
-  font-size: 1rem;
-  font-weight: bold;
+.btn-group .btn {
+  margin-right: 5px;
 }
 
-.btn-success {
-  background-color: #28a745;
-  border: none;
+h2.title {
+  color: #00796b;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
 }
 
-.btn-danger {
-  background-color: #dc3545;
-  border: none;
+.task-list-container .list-group-item {
+  cursor: move;
 }
 
-.btn-danger:hover {
-  background-color: #c82333;
+.task-list-container .list-group-item.dragging {
+  opacity: 0.5;
 }
