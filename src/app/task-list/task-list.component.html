@@ -11,7 +11,7 @@
       (taskReordered)="onTaskReordered($event)"
       draggable="true"
     >
-        <span>{{ task.content }}</span>
+        <span>{{ task.content | truncateName}}</span>
         
         
         <div class="btn-group" role="group">

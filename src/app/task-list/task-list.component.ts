@@ -17,6 +17,7 @@ import { TaskModel } from '../Models/task.model';
 import { FormsModule } from '@angular/forms';
 import { TaskDetailComponent } from '../task-detail/task-detail.component';
 import { DragAndDropDirective } from '../drag-and-drop.directive';
+import { TruncateNamePipe } from '../truncate-name.pipe';
 
 @Component({
   selector: 'app-task-list',
@@ -30,6 +31,7 @@ import { DragAndDropDirective } from '../drag-and-drop.directive';
     FormsModule,
     TaskDetailComponent,
     DragAndDropDirective,
+    TruncateNamePipe
   ],
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.css'],
