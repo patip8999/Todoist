@@ -48,7 +48,7 @@
 <app-modal>
   <div modal-header>
     <h5 class="modal-title">Edytuj Zadanie</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+   
   </div>
   <div modal-body>
     @if (selectedTask) {
@@ -67,17 +67,21 @@
           class="form-control"
           [(ngModel)]="editedDescription"
         ></textarea>
-        <label for="dueDate">Due Date:</label>
-        <input type="date" id="dueDate" [(ngModel)]="editedDueDate" />
+
+        <div class="mt-3">
+          <label for="dueDate">Data:</label>
+          <input type="date" class="form-control" id="dueDate" [(ngModel)]="editedDueDate" />
+      </div>
+      <div class="mt-3">
+        <label for="priority">Priorytet:</label>
       
-        <!-- Nowe pole do edycji priorytetu -->
-        <label for="priority">Priority:</label>
         <select id="priority" [(ngModel)]="editedPriority">
           <option value="1">Priority 1</option>
           <option value="2">Priority 2</option>
           <option value="3">Priority 3</option>
           <option value="4">Priority 4</option>
         </select>
+      </div>
       </div>
     }
   </div>

@@ -1,6 +1,7 @@
+/* Tło listy zadań */
 .list-group-item {
-  background: linear-gradient(135deg, #e0f7fa, #80deea);
-  border-radius: 10px;
+  background: linear-gradient(135deg, #e0f7fa, #254636);
+  border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
   transition: transform 0.2s, box-shadow 0.2s;
@@ -8,7 +9,7 @@
 
 .list-group-item:hover {
   transform: scale(1.02);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .task-description {
@@ -19,20 +20,124 @@
   color: #555;
 }
 
+/* Zmiana stylów przycisków */
 .btn-group .btn {
-  margin-right: 5px;
+  margin-right: 8px;
+  padding: 8px 16px;
+  border-radius: 25px; /* Zaokrąglone rogi */
+  font-weight: 500;
+  text-transform: capitalize; /* Pierwsza litera duża */
+  transition: all 0.3s ease;
+  background-color: #254636 /* Kolor przycisku */
+  color: white;
+  border: 2px solid #00796b; /* Kontur przycisku */
 }
 
-h2.title {
-  color: #00796b;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
+.btn-group .btn:hover,
+.btn-group .btn:focus {
+  background-color:#254636; /* Ciemniejszy zielony przy hover */
+  border-color: #004d40;
+  transform: scale(1.05);
 }
 
+.btn-group .btn-danger {
+  background-color: #e57373; /* Czerwony */
+  border-color: #e57373;
+}
+
+.btn-group .btn-danger:hover,
+.btn-group .btn-danger:focus {
+  background-color: #c62828;
+  border-color: #c62828;
+}
+
+.btn-group .btn-info {
+  background-color: #81d4fa; /* Niebieski */
+  border-color: #81d4fa;
+}
+
+.btn-group .btn-info:hover,
+.btn-group .btn-info:focus {
+  background-color: #0288d1;
+  border-color: #0288d1;
+}
+
+.btn-group .btn-secondary {
+  background-color: #c5e1a5; /* Jasny zielony */
+  border-color: #c5e1a5;
+}
+
+.btn-group .btn-secondary:hover,
+.btn-group .btn-secondary:focus {
+  background-color: #8bc34a;
+  border-color: #8bc34a;
+}
+
+/* Dodaj efekt najechania na listę */
 .task-list-container .list-group-item {
   cursor: move;
 }
 
 .task-list-container .list-group-item.dragging {
-  opacity: 0.5;
+  opacity: 0.6;
+}
+
+/* Dostosowanie nagłówków */
+h2.title {
+  color: #00796b; /* Pasujący zielony */
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
+/* Przyciski „Dodaj zadanie” */
+.d-flex .btn-success {
+  background-color: #254636; /* Nowy kolor przycisku */
+  border-color: #254636; /* Kolor obramowania */
+  padding: 12px 24px;
+  border-radius: 30px; /* Zaokrąglone rogi */
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+.d-flex .btn-success:hover {
+  background-color: #388e3c; /* Ciemniejszy zielony przy hover */
+  border-color: #388e3c;
+}
+/* Ogólna optymalizacja */
+.task-list-container {
+  background-color: #f1f1f1;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.task-list-container .list-group {
+  padding: 0;
+}
+.btn btn-primary {
+  background-color: #254636 !important; /* Buttle Green - z użyciem !important */
+  color: white !important;  /* Kolor tekstu */
+  border-radius: 25px;
+  padding: 8px 20px;
+  border: none;
+  transition: background-color 0.3s;
+}
+.btn-primary {
+  background-color: #74897E !important; /* Buttle Green */
+  color: white !important; /* Kolor tekstu */
+  border-radius: 25px;
+  padding: 8px 20px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover - ciemniejszy zielony */
+.btn-primary:hover {
+  background-color: #1b3a32 !important; /* Ciemniejszy zielony przy hover */
+  border-color: #1b3a32 !important; /* Ciemniejszy zielony kontur */
+}
+.btn-secondary {
+  border-radius: 25px;
+  padding: 8px 20px;
+  border: none;
+  transition: background-color 0.3s ease;
 }

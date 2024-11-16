@@ -1,23 +1,38 @@
+<div class="container mt-5">
+  <!-- Karta z szczegółami zadania -->
+  <div class="card task-detail-card">
+    <div class="card-body">
+      <h2 class="task-detail-title text-center mb-4 text-white">Szczegóły zadania</h2>
+    @if (task ; as task) {
+      <div class="task-detail">
+        <div class="detail-item">
+          <span class="detail-label text-center">Treść:</span>
+          <p class="detail-value">{{ task.content }}</p>
+        </div>
 
-  <div  class="task-detail-container">
-    <h2 class="task-detail-title">Task Details</h2>
-    <div class="task-detail">
-      @if (task ; as task) {
-      <p><strong>Content:</strong> {{ task.content }}</p>
-      <p><strong>Description:</strong> {{ task.description || 'No description provided' }}</p>
-      <p><strong>Due Date:</strong> {{ task.due ? formatDate(task.due.date) : 'No due date' }}</p>
-      <p><strong>Priority:</strong> 
-        
-        <span [ngClass]="{
-          'high-priority': task.priority === 4,
-          'medium-priority': task.priority === 3,
-          'low-priority': task.priority === 2,
-          'very-low-priority': task.priority === 1
-        }">
-          {{ task.priority }}
-        </span>
-      </p>
-    }
+        <div class="detail-item ">
+          <span class="detail-label">Opis:</span>
+          <p class="detail-value">{{ task.description || 'Brak opisu' }}</p>
+        </div>
+
+        <div class="detail-item">
+          <span class="detail-label">Data wykonania:</span>
+          <p class="detail-value">{{ task.due ? formatDate(task.due.date) : 'Brak daty' }}</p>
+        </div>
+
+        <div class="detail-item">
+          <span class="detail-label">Priorytet:</span>
+          <span class="detail-value" [ngClass]="{
+            'high-priority': task.priority === 4,
+            'medium-priority': task.priority === 3,
+            'low-priority': task.priority === 2,
+            'very-low-priority': task.priority === 1
+          }">
+            {{ task.priority }}
+        </span>  
+      </div>
+    </div>
+  }
+  </div>
 </div>
-
 </div>

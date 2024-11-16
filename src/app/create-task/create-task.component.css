@@ -1,0 +1,50 @@
+/* Stylizacja karty formularza */
+.task-form-card {
+    max-width: 600px; /* Ograniczamy szerokość karty */
+    margin: 0 auto;  /* Wyśrodkowanie karty na stronie */
+    padding: 20px;   /* Dodanie przestrzeni wewnętrznej */
+    border-radius: 12px; /* Zaokrąglone rogi karty */
+    background: linear-gradient(135deg, #e0f7fa, #254636); /* Gradient od błękitu do bottle green */
+  }
+  
+  /* Nagłówek karty */
+  .card-title {
+    font-size: 1.5rem; /* Większy rozmiar czcionki dla nagłówka */
+    font-weight: 700;
+    color: white; /* Kolor tekstu nagłówka */
+  }
+  
+  /* Stylizacja formularza w karcie */
+  .form-label {
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  
+  .form-control,
+  .form-select {
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 5px;
+  }
+  
+  /* Stylizacja przycisku */
+  .btn-light {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    background-color: #ffffff;
+    color: #254636; /* Ciemniejszy zielony kolor przycisku */
+    border: none;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-light:hover {
+    background-color: #81c784; /* Jaśniejszy zielony */
+    color: white;
+  }
+  
+  /* Stylizacja tła formularza */
+  body {
+    background-color: #f4f4f4; /* Tło strony */
+  }
+  

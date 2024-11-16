@@ -1,16 +1,20 @@
-<div class="modal fade" tabindex="-1" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <ng-content select="[modal-header]"></ng-content>
-        </div>
-        <div class="modal-body">
-          <ng-content select="[modal-body]"></ng-content>
-        </div>
-        <div class="modal-footer">
-          <ng-content select="[modal-footer]"></ng-content>
-        </div>
+<div class="modal fade" tabindex="-1" id="exampleModal" aria-labelledby="taskModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content task-modal-content">
+      <!-- Nagłówek modala -->
+      <div class="modal-header">
+        <ng-content select="[modal-header]"></ng-content> <!-- Nagłówek z komponentu logiki -->
+      </div>
+
+      <!-- Ciało modala -->
+      <div class="modal-body">
+        <ng-content select="[modal-body]"></ng-content> <!-- Treść formularza z komponentu logiki -->
+      </div>
+
+      <!-- Stopka modala -->
+      <div class="modal-footer">
+        <ng-content select="[modal-footer]"></ng-content> <!-- Przyciski z komponentu logiki -->
       </div>
     </div>
   </div>
-  
+</div>
