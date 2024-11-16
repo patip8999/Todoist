@@ -1,0 +1,30 @@
+<app-card>
+  <div card-title>
+    <h5 class="card-title text-center">Nowe zadanie</h5>
+  </div>
+  
+  <div content>
+    <div class="mb-4">
+      <label for="taskName" class="form-label">Treść zadania</label>
+      <input type="text" class="form-control" id="taskName"  #taskName placeholder="Wpisz nazwę zadania">
+
+      <label for="taskDescription" class="form-label mt-3">Opis</label>
+      <textarea class="form-control" id="taskDescription" rows="4" placeholder="Wpisz opis zadania" #taskDescription></textarea>
+
+      <label for="taskDate" class="form-label mt-3">Data</label>
+      <input type="date" class="form-control" id="taskDate" #taskDate>
+
+      <label for="taskPriority" class="form-label mt-3" >Priorytet</label>
+      <select class="form-select" id="taskPriority"#taskPriority>
+        <option value="1">Priority 1</option>
+        <option value="2">Priority 2</option>
+        <option value="3">Priority 3</option>
+        <option value="4">Priority 4</option>
+      </select>
+    </div>
+  </div>
+  
+  <div action-button>
+    <button class="btn btn-light" (click)="addTask(taskName.value, taskDescription.value, taskDate.value, taskPriority.value)">Dodaj zadanie</button>
+  </div>
+</app-card>

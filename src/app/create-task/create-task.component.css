@@ -1,0 +1,103 @@
+/* Stylizacja karty formularza */
+.task-form-card {
+  max-width: 600px; /* Ograniczamy szerokość karty */
+  margin: 0 auto;  /* Wyśrodkowanie karty na stronie */
+  padding: 20px;   /* Dodanie przestrzeni wewnętrznej */
+  border-radius: 12px; /* Zaokrąglone rogi karty */
+  background: linear-gradient(135deg, #e0f7fa, #254636); /* Gradient od błękitu do butelkowego zielonego */
+}
+
+/* Nagłówek karty */
+.card-title {
+  font-size: 1.5rem; /* Większy rozmiar czcionki dla nagłówka */
+  font-weight: 700;
+  color: white; /* Kolor tekstu nagłówka */
+}
+
+/* Stylizacja formularza w karcie */
+.form-label {
+  font-weight: 500;
+  font-size: 1rem;
+  color: white; /* Kolor etykiet formularza */
+}
+
+.form-control,
+.form-select {
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 5px;
+  font-size: 1rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #81c784; /* Zielona ramka przy fokuse */
+  outline: none;
+}
+
+/* Stylizacja przycisku */
+.btn-light {
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  background-color: #ffffff;
+  color: #254636; /* Ciemniejszy zielony kolor przycisku */
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-light:hover {
+  background-color: #81c784; /* Jaśniejszy zielony */
+  color: white;
+}
+
+/* Stylizacja tła formularza */
+body {
+  background-color: #f4f4f4; /* Tło strony */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Stylizacja przycisku dodawania zadania */
+button:focus {
+  outline: none; /* Usuwamy domyślną obwódkę przy focuse */
+}
+
+/* Stylizacja etykiet formularza */
+input,
+textarea,
+select {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type="date"] {
+  padding: 10px;
+}
+
+select {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  color: #254636; /* Kolor tekstu w selekcie */
+}
+
+/* Ogólne style dla wszystkich komponentów */
+.container {
+  margin-top: 30px;
+  padding: 0 15px;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
