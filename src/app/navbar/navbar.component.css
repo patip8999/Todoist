@@ -1,6 +1,7 @@
 .navbar {
     background: linear-gradient(135deg, #e0f7fa, #254636);
     border-radius: 10px;
+    
   }
   .navbar .navbar-brand {
     font-size: 1.5rem;  /* Zwiększenie rozmiaru czcionki */
@@ -50,4 +51,12 @@
     .navbar-nav {
       text-align: center;
     }
+  }
+  .navbar-date {
+    font-family: 'Arial', sans-serif; /* Elegancka czcionka */
+    font-size: 16px; /* Dopasuj rozmiar */
+    color: white; /* Biały kolor tekstu */
+    white-space: nowrap; /* Zapobiega zawijaniu tekstu */
+    display: flex; /* Wyrównanie w jednej linii */
+    align-items: center; /* Wyśrodkowanie względem wysokości */
   }

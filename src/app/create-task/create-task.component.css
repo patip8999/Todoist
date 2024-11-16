@@ -1,7 +1,6 @@
-/* Stylizacja karty formularza */
 .task-form-card {
   max-width: 600px; /* Ograniczamy szerokość karty */
-  margin: 0 auto;  /* Wyśrodkowanie karty na stronie */
+  margin: 50px auto;  /* Wyśrodkowanie karty na stronie i dodanie odstępu od góry */
   padding: 20px;   /* Dodanie przestrzeni wewnętrznej */
   border-radius: 12px; /* Zaokrąglone rogi karty */
   background: linear-gradient(135deg, #e0f7fa, #254636); /* Gradient od błękitu do butelkowego zielonego */
@@ -53,6 +52,7 @@
 
 /* Stylizacja tła formularza */
 body {
+  padding-top: 70px; /* Dopasuj do wysokości navbaru */
   background-color: #f4f4f4; /* Tło strony */
   font-family: 'Arial', sans-serif;
 }
