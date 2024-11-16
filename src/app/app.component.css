@@ -1,0 +1,59 @@
+/* Tło aplikacji */
+.app-container {
+    position: relative; /* Zmienia pozycjonowanie kontenera aplikacji */
+    z-index: 1; /* Ustawienie kontenera powyżej tła */
+    padding: 20px;
+    background-color: inherit; /* Tło dziedziczone */
+  }
+  
+  /* Ogólny styl dla ciała strony */
+  body {
+    background-color: #f4f4f4; /* Kolor tła strony */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .app-container h1 {
+    position: relative;
+    z-index: 2; /* Zapewnia, że tytuł jest nad tłem */
+  }
+  
+  /* Dla elementu navbar */
+  app-navbar {
+    position: relative;
+    z-index: 3; /* Zapewnia, że navbar jest na wierzchu */
+  }
+  
+  /* Stylowanie dla listy zadań */
+  ul.task-list {
+    position: relative;
+    z-index: 2;
+    margin-top: 20px;
+  }
+  
+  
+  /* Stylizacja przycisku */
+  .change-background-btn {
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color:#254636; /* Zielony kolor */
+    border: none;
+    border-radius: 30px; /* Zaokrąglone rogi */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Płynna animacja */
+    outline: none;
+  }
+  
+  .change-background-btn:hover {
+    background-color:#254636; /* Ciemniejszy zielony po najechaniu */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Dodanie cienia */
+  }
+  
+  /* Stylizacja dla animacji przycisku, np. zmieniający się kolor */
+  .change-background-btn:focus {
+    outline: none;
+    border: 2px solid #4CAF50; /* Zielony obramowanie po kliknięciu */
+  }
+  

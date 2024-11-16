@@ -1,7 +1,11 @@
 <app-navbar>
-    <div date>
-        <strong>{{ currentDate | dateFormat }}</strong>
-    </div>
-  </app-navbar>
+  <div date>
+    <strong>{{ currentDate | dateFormat }}</strong>
+  </div>
+</app-navbar>
 
-<router-outlet />
+<div class="app-container" appBackgroundImageUpload>
+ 
+  <button class="change-background-btn">Zmień tło</button>
+</div>
+<router-outlet></router-outlet>
