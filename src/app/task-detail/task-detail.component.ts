@@ -4,11 +4,12 @@ import { Observable } from 'rxjs';
 import { TaskModel } from '../Models/task.model';
 import { AsyncPipe, CommonModule, DatePipe } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CardComponent } from '../card/card.component';
 
 @Component({
   selector: 'app-task-detail',
   standalone: true,
-  imports: [AsyncPipe,CommonModule ],
+  imports: [AsyncPipe,CommonModule, CardComponent],
   templateUrl: './task-detail.component.html',
   styleUrl: './task-detail.component.css',
   providers: [DatePipe], 

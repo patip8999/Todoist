@@ -29,7 +29,7 @@ import { DragAndDropDirective } from '../drag-and-drop.directive';
     ModalComponent,
     FormsModule,
     TaskDetailComponent,
-    DragAndDropDirective
+    DragAndDropDirective,
   ],
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.css'],

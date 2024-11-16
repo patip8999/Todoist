@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { TodoistService } from '../Services/todoist.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { CardComponent } from '../card/card.component';
+import { FormsModule } from '@angular/forms';
 export interface TaskForm {
   readonly name: string;
   readonly description: string;
@@ -12,7 +14,7 @@ export interface TaskForm {
 @Component({
   selector: 'app-create-task',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CardComponent, FormsModule],
   templateUrl: './create-task.component.html',
   styleUrl: './create-task.component.css',
 })
