@@ -1,16 +1,13 @@
 <div class="container mt-5">
-  <!-- Karta z szczegółami zadania -->
-  <div class="card task-detail-card">
-    <div class="card-body">
-      <h2 class="task-detail-title text-center mb-4 text-white">Szczegóły zadania</h2>
-    @if (task ; as task) {
-      <div class="task-detail">
+  <app-card [title]="'Szczegóły zadania'" [isVisible]="task !== null">
+    @if (task; as task) {
+      <div>
         <div class="detail-item">
           <span class="detail-label text-center">Treść:</span>
           <p class="detail-value">{{ task.content }}</p>
         </div>
 
-        <div class="detail-item ">
+        <div class="detail-item">
           <span class="detail-label">Opis:</span>
           <p class="detail-value">{{ task.description || 'Brak opisu' }}</p>
         </div>
@@ -29,10 +26,9 @@
             'very-low-priority': task.priority === 1
           }">
             {{ task.priority }}
-        </span>  
+          </span>
+        </div>
       </div>
-    </div>
-  }
-  </div>
-</div>
+    }
+  </app-card>
 </div>
