@@ -66,3 +66,12 @@
   color: #81c784; /* Jaśniejszy zielony dla bardzo niskiego priorytetu */
   font-weight: bold;
 }
+.btn-light {
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  background-color: #ffffff;
+  color: #254636; /* Ciemniejszy zielony kolor przycisku */
+  border: none;
+  transition: all 0.3s ease;
+}
