@@ -10,7 +10,18 @@
       [attr.data-index]="task.id"
       (taskReordered)="onTaskReordered($event)"
       draggable="true"
-    >
+      
+    >  <button
+    class="btn"
+    [ngClass]="{
+      'btn-success': task.status === 'Done',
+      'btn-outline-secondary': task.status !== 'Done'
+    }"
+    (click)="changeStatus({ taskId: +task.id, status: task.status === 'Done' ? 'Pending' : 'Done' })"
+  >
+    {{ task.status === 'Done' ? 'Done' : 'Mark as Done' }}
+  </button>
+    
         <span>{{ task.content | truncateName}}</span>
         
         
@@ -27,6 +38,7 @@
           data-bs-target="#exampleModal"  (click)="openEditModal(task)" >
             Edytuj na żywo
           </button>
+         
         </div>
         
         @if (task.isDescriptionVisible) {

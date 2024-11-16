@@ -14,4 +14,5 @@ export interface TaskModel{
     due: { date: string; string: string; lang: string; is_recurring: boolean } | null;  // Typ dla due
     dueDate: string;
     isDescriptionVisible?: boolean;
+    status: 'Pending' | 'Done';
   }

@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { TaskDetailComponent } from '../task-detail/task-detail.component';
 import { DragAndDropDirective } from '../drag-and-drop.directive';
 import { TruncateNamePipe } from '../truncate-name.pipe';
+import { TaskDoneDirective } from '../task-done.directive';
 
 @Component({
   selector: 'app-task-list',
@@ -31,7 +32,7 @@ import { TruncateNamePipe } from '../truncate-name.pipe';
     FormsModule,
     TaskDetailComponent,
     DragAndDropDirective,
-    TruncateNamePipe
+    TruncateNamePipe, TaskDoneDirective
   ],
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.css'],
@@ -119,5 +120,23 @@ editedDueDate: string = ''; // Nowe pole na datę
       this.tasks.set([...tasks]);
     }
   }
+  status: 'Pending' | 'Done' = 'Pending';
+  changeStatus(taskData: { taskId: number, status: 'Pending' | 'Done' }): void {
+    const tasks = this.tasks();  // Pobierz tablicę zadań
+  
+    const task = tasks.find(t => t.id === taskData.taskId.toString());   // Używamy "+" do konwersji
+  
+    if (task) {
+      // Sprawdzenie, czy status jest jednym z dopuszczalnych
+      if (taskData.status === 'Pending' || taskData.status === 'Done') {
+        task.status = taskData.status;
+        this.tasks.set(tasks);  // Zaktualizowanie sygnału
+        this.saveTasksToLocalStorage();  // Zapisanie do localStorage
+      }
+    }
+  }
+  private saveTasksToLocalStorage(): void {
+    const tasks = this.tasks();  // Pobieranie wartości z sygnału
+    localStorage.setItem('tasks', JSON.stringify(tasks));  // Zapisanie do localStorage
+  }
 }
-

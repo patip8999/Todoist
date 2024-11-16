@@ -44,4 +44,12 @@ export class TodoistService {
       priority: priority,
     });
   }
+  markTaskAsDone(taskId: number): Observable<any> {
+    return this.httpClient.post(`${this.apiUrl}/${taskId}/close`, {});
+  }
+
+  // Metoda do oznaczania zadania jako oczekujące
+  markTaskAsPending(taskId: number): Observable<any> {
+    return this.httpClient.post(`${this.apiUrl}/${taskId}/reopen`, {});
+  }
 }
